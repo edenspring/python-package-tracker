@@ -1,0 +1,2 @@
+SECRET_KEY=replace_with_random_cryptographic_bits
+FLASK_ENV=development
