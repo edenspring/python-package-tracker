@@ -2,11 +2,16 @@ from flask import Flask, render_template, redirect
 from config import Config
 from app.shipping_form import PackageForm
 from map.map import map
-
+from flask_migrate import Migrate
+from app.models import db, Package
 
 app = Flask(__name__)
 
+
 app.config.from_object(Config)
+
+db.init_app(app)
+migrate = Migrate(app, db)
 
 @app.route("/")
 def root():
